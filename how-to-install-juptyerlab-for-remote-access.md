@@ -39,17 +39,29 @@ Else you have to adapt.
 In the jupyter.service, put the following:
 
 [Unit]
+
 Description=Jupyter Lab
+
 [Service]
+
 Type=simple
+
 PIDFile=/run/jupyter.pid
+
 ExecStart=/bin/bash -c "/home/pi/.local/bin/jupyter-lab --ip="0.0.0.0" --no-browser --notebook-dir=/home/pi/notebooks"
+
 User=pi
+
 Group=pi
+
 WorkingDirectory=/home/pi/notebooks
+
 Restart=always
+
 RestartSec=10
+
 [Install]
+
 WantedBy=multi-user.target
 
 And enable the service:
